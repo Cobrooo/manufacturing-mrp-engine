@@ -18,12 +18,11 @@ import java.util.Set;
 @Service
 public class MrpService {
 
-    private final ItemRepository    itemRepository;
+    private final ItemRepository itemRepository;
     private final BomLinkRepository bomLinkRepository;
 
-    public MrpService(ItemRepository itemRepository,
-                      BomLinkRepository bomLinkRepository) {
-        this.itemRepository    = itemRepository;
+    public MrpService(ItemRepository itemRepository, BomLinkRepository bomLinkRepository) {
+        this.itemRepository = itemRepository;
         this.bomLinkRepository = bomLinkRepository;
     }
 
@@ -47,8 +46,7 @@ public class MrpService {
         Set<Long> visitedItems = new HashSet<>();
 
         // Step 4 — Start recursive traversal
-        explodeRecursive(productId, targetQuantity,
-                         requirementsMap, visitedItems);
+        explodeRecursive(productId, targetQuantity, requirementsMap, visitedItems);
 
         // Step 5 — Convert map to result list
         List<BomExplosionResult> results = new ArrayList<>();
@@ -121,4 +119,6 @@ public class MrpService {
         // can visit the same item independently
         visitedItems.remove(itemId);
     }
+    
+    
 }

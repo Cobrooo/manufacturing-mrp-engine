@@ -72,4 +72,8 @@ public class Item {
     	return type;
     }
     
+    public Long getId() {
+        return id;
+    }
+    
 }
