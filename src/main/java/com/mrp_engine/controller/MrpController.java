@@ -38,5 +38,18 @@ public class MrpController {
 
         return ResponseEntity.ok(results);
     }
+    
+//    @PostMapping("/explode")
+//    public ResponseEntity<List<BomExplosionResult>> explodeBom(
+//            @RequestBody Map<String, Object> request) {
+//
+//        Long   productId      = Long.valueOf(request.get("productId").toString());
+//        Double targetQuantity = Double.valueOf(request.get("targetQuantity").toString());
+//
+//        List<BomExplosionResult> results =
+//                mrpService.explodeBom(productId, targetQuantity);
+//
+//        return ResponseEntity.ok(results);
+//    }
 	
 }
