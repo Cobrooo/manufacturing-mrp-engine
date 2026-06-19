@@ -24,20 +24,42 @@ public class MrpController {
      * Body: { "productId": 1, "targetQuantity": 500 }
      * Returns: flat list of all raw materials needed
      */
+//    @PostMapping("/explode")
+//    public ResponseEntity<List<BomExplosionResult>> explodeBom(
+//            @RequestBody Map<String, Object> request) {
+//
+//        Long   productId = Long.valueOf(
+//                                  request.get("productId").toString());
+//        Double targetQuantity = Double.valueOf(
+//                                  request.get("targetQuantity").toString());
+//
+//        List<BomExplosionResult> results =
+//                mrpService.explodeBom(productId, targetQuantity);
+//
+//        return ResponseEntity.ok(results);
+//    }
+    // Done Testing with all the API endpoint /explode
+    
     @PostMapping("/explode")
     public ResponseEntity<List<BomExplosionResult>> explodeBom(
             @RequestBody Map<String, Object> request) {
 
-        Long   productId = Long.valueOf(
-                                  request.get("productId").toString());
-        Double targetQuantity = Double.valueOf(
-                                  request.get("targetQuantity").toString());
+        if (request.get("productId") == null) {
+            throw new IllegalArgumentException("productId is required.");
+        }
+        if (request.get("targetQuantity") == null) {
+            throw new IllegalArgumentException("targetQuantity is required.");
+        }
+
+        Long   productId      = Long.valueOf(request.get("productId").toString());
+        Double targetQuantity = Double.valueOf(request.get("targetQuantity").toString());
 
         List<BomExplosionResult> results =
                 mrpService.explodeBom(productId, targetQuantity);
 
         return ResponseEntity.ok(results);
     }
+    
     
 //    @PostMapping("/explode")
 //    public ResponseEntity<List<BomExplosionResult>> explodeBom(
