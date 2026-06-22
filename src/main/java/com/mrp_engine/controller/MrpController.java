@@ -40,6 +40,8 @@ public class MrpController {
 //    }
     // Done Testing with all the API endpoint /explode
     
+    
+    // Updated code for handling the exceptions
     @PostMapping("/explode")
     public ResponseEntity<List<BomExplosionResult>> explodeBom(
             @RequestBody Map<String, Object> request) {
