@@ -31,3 +31,15 @@ FROM bom_explosion be
 JOIN item i ON i.id = be.child_item_id
 WHERE i.type = 'RAW_MATERIAL'
 GROUP BY i.id, i.name, i.type, i.unit_of_measure;
+
+
+
+
+
+
+-- Clean Up Query for the newly created stock after completing the test
+
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM purchase_order WHERE item_id = 12;
+DELETE FROM bom_link WHERE child_item_id = 12;
+DELETE FROM item WHERE id = 12;
